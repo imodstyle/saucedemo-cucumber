@@ -1,6 +1,6 @@
-# This is Saucedemo test based of data-driven-test, using cucumber.
+# This is Saucedemo test based off data-driven-test, using cucumber.
 
-This is Saucedemo test based of data-driven-test, using cucumber. This is intended for educational perpose only. Thanks to Rakamin and Digitalent Kominfo.
+This is Saucedemo test based off data-driven-test, using cucumber. This is intended for educational perpose only. Thanks to Rakamin and Digitalent Kominfo.
 
 Software to help me run this:
 1. [Intellij Idea Community Edition](https://www.jetbrains.com/idea/)
@@ -22,4 +22,4 @@ Setup every apps and dont forget to add it in PATH if you are running on Windows
 This is brief how to use and how to check it:
 1. After download this repo, you shuld reload maven to make sure all library is loaded in system.
 2. For running all test you can simply open runEveryhing.java in runner. After finish test, there is "target" folder in root folder. The report test is "HTML_report.html".
-3. For running spesific task, you can go to features and run task you desire.
+3. For running spesific task, you can go to features and run task that you desire.
