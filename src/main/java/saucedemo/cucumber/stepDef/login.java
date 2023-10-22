@@ -17,8 +17,8 @@ public class login {
 
     String baseUrl = "https://www.saucedemo.com";
 
-    @Given("I open the saucedemo website")
-    public void i_open_the_saucedemo_website() {
+    @Given("User open the saucedemo website")
+    public void user_open_the_saucedemo_website() {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions opt = new FirefoxOptions();
         opt.addArguments("--headless");
@@ -33,23 +33,23 @@ public class login {
         Assert.assertEquals("Swag Labs", loginPage);
     }
 
-    @When("I enter {string} as username")
-    public void i_enter_standard_user_as_username(String username) {
+    @When("User enter {string} as username")
+    public void user_enter_standard_user_as_username(String username) {
         driver.findElement(By.id("user-name")).sendKeys(username);
     }
 
-    @When("I enter {string} as password")
-    public void i_enter_secret_sauce_as_password(String password) {
+    @When("User enter {string} as password")
+    public void user_enter_secret_sauce_as_password(String password) {
         driver.findElement(By.id("password")).sendKeys(password);
     }
 
-    @When("I click the login button")
-    public void i_click_the_login_button() {
+    @When("User click the login button")
+    public void user_click_the_login_button() {
         driver.findElement(By.xpath("//*[@id=\"login-button\"]")).click();
     }
 
-    @Then("I verify {string} login result")
-    public void i_verify_success_login_result(String status) {
+    @Then("User verify {string} login result")
+    public void user_verify_success_login_result(String status) {
         if (status.equals("success")) {
             String dashboardPage = driver.findElement(By.xpath("//*[@class='title']")).getText();
             Assert.assertEquals("Products", dashboardPage);

@@ -1,5 +1,6 @@
 package saucedemo.cucumber.stepDef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,13 +13,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.concurrent.TimeUnit;
-public class logout {
+
+public class addProduct {
     WebDriver driver;
 
     String baseUrl = "https://www.saucedemo.com";
 
-    @Given("User open saucedemo website 1")
-    public void user_open_the_saucedemo_website_1() {
+    @Given("User open saucedemo website 3")
+    public void user_open_the_saucedemo_website_3() {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions opt = new FirefoxOptions();
         opt.addArguments("--headless");
@@ -33,8 +35,8 @@ public class logout {
         Assert.assertEquals("Swag Labs", loginPage);
     }
 
-    @When("User login success 1")
-    public void user_login_success_1() {
+    @When("User login success 3")
+    public void user_login_success_3() {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.xpath("//*[@id='login-button']")).click();
@@ -43,26 +45,28 @@ public class logout {
         Assert.assertEquals("Products", iventoryPage);
     }
 
-    @When("User click menu button")
-    public void user_click_menu_button() {
-
-        driver.findElement(By.xpath("//*[@id='react-burger-menu-btn']")).click();
-
-        WebElement element = driver.findElement(By.cssSelector("[aria-hidden='false']"));
-        String ariaHiddenValue = element.getAttribute("aria-hidden");
-        Assert.assertEquals("false", ariaHiddenValue);
+    @Then("User is on saucedemo product page 3")
+    public void user_is_on_product_page_saucedemo_3() {
+        driver.findElement(By.xpath("//*[contains(text(), 'Products')]"));
     }
 
-    @When("User click logout button")
-    public void user_click_logout_button() {
-        driver.findElement(By.xpath("//*[@id='logout_sidebar_link']")).click();
+    @When("User click add to cart button 3")
+    public void user_click_add_to_cart_button_3() {
+        driver.findElement(By.id("add-to-cart-sauce-labs-onesie")).click();
     }
 
-    @Then("User verify logout result")
-    public void user_verify_logout_result() {
-        String loginPage = driver.findElement(By.xpath("//div[contains(text(),'Swag Labs')]")).getText();
-        Assert.assertEquals("Swag Labs", loginPage);
+    @And("User click cart icon 3")
+    public void user_click_cart_icon_3() {
+        driver.findElement(By.className("shopping_cart_link")).click();
+    }
 
-        driver.quit();
+    @Then("Product show at cart list 3")
+    public void product_show_at_cart_list_3() {
+        driver.findElement(By.className("inventory_item_name"));
+    }
+
+    @Then("Product not show at cart list 3")
+    public void product_not_show_at_cart_list_3() {
+        driver.findElement(By.className("inventory_item_name"));
     }
 }
